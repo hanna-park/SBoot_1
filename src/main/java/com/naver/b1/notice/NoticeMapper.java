@@ -18,6 +18,8 @@ public interface NoticeMapper {
 	public int noticeCount(Pager pager) throws Exception;
 	
 	public int noticeWrite(NoticeVO noticeVO) throws Exception;
+	
+	public NoticeVO noticeSelect(NoticeVO noticeVO) throws Exception;
 }
 
 

@@ -29,6 +29,11 @@ public class NoticeService {
 	@Autowired
 	private NoticeFilesMapper noticeFilesMapper;
 	
+	public NoticeVO noticeSelect(NoticeVO noticeVO) throws Exception{
+		
+		return noticeMapper.noticeSelect(noticeVO);
+	}
+	
 	
 	public List<NoticeVO> noticeList(Pager pager) throws Exception{
 		pager.makeRow();

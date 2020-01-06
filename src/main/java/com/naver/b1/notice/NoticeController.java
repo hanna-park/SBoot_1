@@ -31,6 +31,16 @@ public class NoticeController {
 		return new NoticeVO(); 
 	}
 	
+	@GetMapping("noticeSelect")
+	public ModelAndView noticeSelect(NoticeVO noticeVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		noticeVO = noticeService.noticeSelect(noticeVO);
+		
+		mv.addObject("noticeVO",noticeVO);
+		mv.setViewName("notice/noticeSelect");
+		return mv;
+	}
+	
 	@GetMapping("noticeList")
 	public ModelAndView noticeList(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
