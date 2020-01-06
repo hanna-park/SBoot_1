@@ -31,30 +31,7 @@ public class MemberService {
 	@Autowired
 	private FileSaver fileSaver;
 	
-	public boolean memberJoinValidate(MemberVO memberVO, BindingResult bindingResult) throws Exception {
-		boolean check = false;	// true  -> error, false -> OK
-		
-		// Annotation 검증 결과
-		if(bindingResult.hasErrors()) {
-			check = true;
-		}
-		
-		// pw가 일치하는지 검증
-		if(!memberVO.getPw().equals(memberVO.getPw2())) {
-			check = true;
-			bindingResult.rejectValue("pw2", "memberVO.pw.notEqual");
-										//form의 path명, properties의 키
-			
-		}
-		//id가 중복 검사
-		if(memberMapper.memberIdCheck(memberVO) != null) {
-			check = true;
-			bindingResult.rejectValue("id", "memberVO.id.notEqual");
-		}
-		
-		return check;
-	}
-	
+
 	
 	@Transactional(rollbackFor = Exception.class)
 	public int memberJoin(MemberVO memberVO, MultipartFile files) throws Exception {
@@ -99,5 +76,40 @@ public class MemberService {
 	public MemberFilesVO memberFilesSelect(MemberFilesVO memberFilesVO) throws Exception {
 		return memberFilesMapper.memberFilesSelect(memberFilesVO);
 	}
+	
+	//*********************************************************************************************************************************
+	
+	// 회원가입 유효성 검증
+	public boolean memberJoinValidate(MemberVO memberVO, BindingResult bindingResult) throws Exception {
+		boolean check = false; //true라면 에러, false면 검증완료로 지정하겠다.
+		
+		//annotiation으로 검증
+		if (bindingResult.hasErrors()) {
+			check = true;
+		}
+		
+		//pw가 일치하는지 검증 
+		if(!memberVO.getPw().equals(memberVO.getPw2())) {
+			check = true;
+			bindingResult.rejectValue("pw2", "memberVO.pw.notEqual");
+			//pw2 : form 내의 path명 
+			//memberVO.pw.notEqual : properties의 key값 
+		}
+		
+		//id 중복검사
+		System.out.println(memberVO.getId());
+		memberVO = memberMapper.idCheck(memberVO);
+		if (memberVO != null) {
+			check = true;
+			bindingResult.rejectValue("id", "memberVO.id.notEqual"); 
+		}
+		
+		
+		return check;
+	}
+	
+	
+	
+	
 	
 }

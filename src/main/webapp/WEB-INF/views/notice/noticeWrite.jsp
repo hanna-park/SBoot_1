@@ -152,5 +152,8 @@
 		
 	</script>
 </div>
+
+</head>
+
 </body>
 </html>

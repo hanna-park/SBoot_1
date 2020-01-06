@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.naver.b1.notice.NoticeMapper">
-  
+
   	<sql id="bs">
 		<choose>
 			<when test="kind == 'kT'">
@@ -53,3 +53,4 @@
   
   
   </mapper>
+

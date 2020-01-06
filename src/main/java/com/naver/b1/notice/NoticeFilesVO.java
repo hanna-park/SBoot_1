@@ -6,6 +6,7 @@ public class NoticeFilesVO {
 	private int num;
 	private String fname;
 	private String oname;
+
 	public int getFnum() {
 		return fnum;
 	}
@@ -31,4 +32,5 @@ public class NoticeFilesVO {
 		this.oname = oname;
 	}
 	
+
 }

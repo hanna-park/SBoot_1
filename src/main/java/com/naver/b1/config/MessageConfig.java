@@ -12,20 +12,26 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @Configuration
-public class MessageConfig implements WebMvcConfigurer{
+public class MessageConfig implements WebMvcConfigurer {
 
 	@Bean
 	public LocaleResolver getLocaleResolver() {
-		//SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
-		//sessionLocaleResolver.setDefaultLocale(Locale.KOREAN);
+		//1. 세션 이용법 : 저장위치-서버데이터를 꺼내쓴다.
+		/*
+		 * SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
+		 * sessionLocaleResolver.setDefaultLocale(Locale.KOREAN);
+		 */
 		
+		//2. 쿠키 이용법 :저장위치-클라이언트데이터를 꺼내쓴다. 주로 쿠키사용
 		CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
-		cookieLocaleResolver.setDefaultLocale(Locale.KOREAN);
-		cookieLocaleResolver.setCookieName("lang");
+		cookieLocaleResolver.setDefaultLocale(Locale.KOREAN); //defalut값을 지정한다. 
+		cookieLocaleResolver.setCookieName("lang"); //파라미터로 넘길 name의 값을 지정한다.
+
 		
 		return cookieLocaleResolver;
 	}
 	
+
 	@Bean
 	public LocaleChangeInterceptor getLocale() {
 		LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -34,12 +40,20 @@ public class MessageConfig implements WebMvcConfigurer{
 		return localeChangeInterceptor;
 	}
 	
+
+	
+
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		// TODO Auto-generated method stub
+
 		registry.addInterceptor(getLocale()).addPathPatterns("/**");
 		
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
+	
+
+	
+	
 	
 }

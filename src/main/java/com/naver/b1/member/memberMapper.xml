@@ -10,13 +10,12 @@
 	</insert>
   
   	<select id="memberLogin" parameterType="com.naver.b1.member.MemberVO" resultType="com.naver.b1.member.MemberVO">
-  		select * from members 
-  		where id=#{id} and pw=#{pw}
+  		select * from members where id=#{id} and pw=#{pw}
   	</select>
   	
-  	<select id="memberIdCheck" parameterType="com.naver.b1.member.MemberVO" resultType="com.naver.b1.member.MemberVO">
-  		select * from members where id=#{id}
-  	</select>  	
-  	
-  
+
+  	<select id="idCheck" parameterType="com.naver.b1.member.MemberVO" resultType="com.naver.b1.member.MemberVO">
+  		select id from members where id=#{id}
+  	</select>
+
   </mapper>

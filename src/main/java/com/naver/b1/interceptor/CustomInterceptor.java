@@ -10,6 +10,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 @Component
 public class CustomInterceptor extends HandlerInterceptorAdapter{
 
+
 	//Controller 진입 전
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -57,4 +58,5 @@ public class CustomInterceptor extends HandlerInterceptorAdapter{
 	}
 	
 	
+
 }

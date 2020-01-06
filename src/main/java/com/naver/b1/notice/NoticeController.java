@@ -1,5 +1,6 @@
 package com.naver.b1.notice;
 
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,13 +18,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.b1.util.Pager;
 
+
 @Controller
 @RequestMapping("/notice/**")
 public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
-	
+
 	@ModelAttribute(name="noticeVO")
 	public NoticeVO getNoticeVO(){
 		return new NoticeVO(); 
@@ -72,6 +74,5 @@ public class NoticeController {
 		return mv;
 	}
 	
-	
-	
+
 }

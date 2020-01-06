@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +20,6 @@
 
 <div class="container">
   <h2>J O I N</h2>
-=======
-    
->>>>>>> c395478d594168bffcd708ccf3b2827b163c23b1
   <form action="./memberJoin" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="id">ID:</label>
@@ -58,7 +54,6 @@
 
     <button type="submit" class="btn btn-default">Submit</button>
   
-<<<<<<< HEAD
   </form>
 </div>
 
@@ -67,6 +62,3 @@
 
 </body>
 </html>
-=======
-  </form>
->>>>>>> c395478d594168bffcd708ccf3b2827b163c23b1

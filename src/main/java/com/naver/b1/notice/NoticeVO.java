@@ -13,6 +13,7 @@ public class NoticeVO {
 	private String writer;
 	private String contents;
 	private Date regDate;
+
 	private int hit;
 	public int getNum() {
 		return num;

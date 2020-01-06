@@ -1,5 +1,6 @@
 package com.naver.b1.notice;
 
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,20 +13,21 @@ import com.naver.b1.util.FilePathGenerator;
 import com.naver.b1.util.FileSaver;
 import com.naver.b1.util.Pager;
 
+
 @Service
 public class NoticeService {
 
-	@Autowired
-	private NoticeMapper noticeMapper;
-	
-	@Autowired
-	private NoticeFilesMapper noticeFilesMapper;
-	
 	@Autowired
 	private FilePathGenerator filePathGenerator;
 	
 	@Autowired
 	private FileSaver fileSaver;
+	
+	@Autowired
+	private NoticeMapper noticeMapper;
+	
+	@Autowired
+	private NoticeFilesMapper noticeFilesMapper;
 	
 	
 	public List<NoticeVO> noticeList(Pager pager) throws Exception{
@@ -61,5 +63,6 @@ public class NoticeService {
 		
 		return fresult;
 	}
+
 	
 }
