@@ -1,10 +1,27 @@
 package com.naver.b1.member;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class MemberVO {
 	
+	@NotEmpty(message = "ID를 입력하세요")
 	private String id;
+	@Size(min = 4,max = 10)
+	@Pattern(regexp = "[0-9]+")
 	private String pw;
+	private String pw2;
+	public String getPw2() {
+		return pw2;
+	}
+	public void setPw2(String pw2) {
+		this.pw2 = pw2;
+	}
+	
 	private String name;
+	@Email
 	private String email;
 	
 	
